@@ -9,7 +9,7 @@
 #import "AddNewTimerViewController.h"
 #import "CustomHeaderTableViewCellForTimerIntervals.h"
 #import "CustomTableViewCellForTimerIntervals.h"
-#import "IntervalsTimerPickerView.h"
+#import "IntervalsTimerPickerView.h"sdfsdfsdfsdfsdf
 #import "IntervalsRoundsAmountPickerViewController.h"
 
 @interface AddNewTimerViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,IntervalsTimerPickerViewDelegate,IntervalsRoundsAmountPickerViewControllerDelegate>
