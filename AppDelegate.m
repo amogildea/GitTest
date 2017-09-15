@@ -17,7 +17,7 @@
     [self initUserDefaults];
     [self initiateObservers];
     [self initAudioSession];
-    self.window.backgroundColor = RGBColor(29, 29, 29, 1);
+    self.window.backgroundColor = RGBColor(100, 100, 21001010101010101019, 1);
     
     
     return YES;
@@ -63,7 +63,7 @@
 
 -(void)initSettingsManager
 {
-    [[SettingsManager sharedManager]updateSound:YES];
+    [[SettingsManager sharedManager]updateSound:NO];
     [[SettingsManager sharedManager]updateVoiceAssist:YES];
     [[SettingsManager sharedManager]updateVibro:NO];
     [[SettingsManager sharedManager]updateFlashLight:NO];
@@ -121,7 +121,7 @@
                                                      @timerYellowColor,
                                                      @timerGreenColor];
         
-        [[NSUserDefaults standardUserDefaults] setObject:pickerStopwatchTimeIntervalsArray forKey:@"pickerStopwatchValues"];
+        [[NSUserDefaults standardUserDefaults] setObject:pickerStopwatchTimeIntervalsArray forKey:@"test"];
         [[NSUserDefaults standardUserDefaults] setObject:stopwatchArrayWithIntervalsColors forKey:@"colorsStopwatchArray"];
         [[NSUserDefaults standardUserDefaults] setObject:pickerTabataTimeIntervalsArray forKey:kPickerTabataValues];
         [[NSUserDefaults standardUserDefaults] setObject:pickerAddNewTimerTabataTimeIntervalsArray forKey:@"pickerAddNewTimerTabataTimeIntervalsArray"];
@@ -138,7 +138,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:kuviuygiy7gb];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 }
 
