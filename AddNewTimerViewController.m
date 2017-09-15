@@ -393,4 +393,82 @@
     return YES;
 }
 
+-(void)setValue:(NSInteger)integerValue{
+    value = integerValue;
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = touches.anyObject;
+    
+    if (touch.phase == UITouchPhaseEnded || touch.phase == UITouchPhaseMoved)
+    {
+        BOOL hasHit = NO;
+        
+        CGPoint touchLocation = [touch locationInView:self];
+        
+        for (id subview in self.buttonView.subviews)
+        {
+            if (_animationInProgress) break;
+            
+            if (![subview isKindOfClass:[PCRapidButton class]]) continue;
+            
+            PCRapidButton *button = subview;
+            CGRect buttonInView = [button convertRect:button.bounds toView:self];
+            
+            BOOL hitButton = CGRectContainsPoint(buttonInView, touchLocation);
+            
+            if (!hasHit) hasHit = hitButton;
+            
+            [UIView animateWithDuration:0.05 animations:^
+            {
+                [button setHighlighted:hitButton];
+            }];
+            
+            if (hitButton && touch.phase == UITouchPhaseEnded)
+            {
+                [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+                return;
+            }
+            
+            if (touch.phase == UITouchPhaseMoved) continue;
+        }
+        
+        if (!hasHit && touch.phase == UITouchPhaseEnded) [self show:NO completionHandler:nil];
+        return;
+    }
+    
+    [super touchesMoved:touches withEvent:event];
+}
+
+static void OverrideSendEvent(UIWindow *self, SEL _cmd, UIEvent *event)
+{
+    gOrigSendEvent(self, _cmd, event);
+    
+    if ([PCRapidSelectionView isInteractive])
+    {
+        
+        UITouch *touch = event.allTouches.anyObject;
+        
+        if (!_rapidSelectionView)
+        {
+            _rapidSelectionView = (id)[[[UIApplication sharedApplication] keyWindow] viewWithTag:kPCRapidSelectionViewTag];
+        }
+        
+        if (touch && _rapidSelectionView)
+        {
+            [_rapidSelectionView touchesMoved:event.allTouches withEvent:event];
+            
+            if (touch.phase == UITouchPhaseEnded)
+            {
+                _rapidSelectionView = nil;
+            }
+            
+            return;
+        }
+    }
+}
+
+
+
 @end
