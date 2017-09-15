@@ -15,16 +15,7 @@
 
     [Fabric with:@[[Crashlytics class]]];
     [self initUserDefaults];
-    [self initiateObservers];
-    [self initAudioSession];
-    [self initUserDefaults];
-    [self initiateObservers];
-    [self initAudioSession];
-    [self initUserDefaults];
-    [self initiateObservers];
-    [self initAudioSession];
-    void[self initUserDefaults];
-    [self initiateObservers];
+    
     [self initAudioSession];
     voidv[self initUserDefaults];
     [self initiateObservers];
