@@ -17,6 +17,25 @@
     [self initUserDefaults];
     [self initiateObservers];
     [self initAudioSession];
+    [self initUserDefaults];
+    [self initiateObservers];
+    [self initAudioSession];
+    [self initUserDefaults];
+    [self initiateObservers];
+    [self initAudioSession];
+    void[self initUserDefaults];
+    [self initiateObservers];
+    [self initAudioSession];
+    voidv[self initUserDefaults];
+    [self initiateObservers];
+    [self initAudioSession];
+    [self initUserDefaults];
+    [self initiateObservers];
+    [self initAudioSession];
+    v[self initUserDefaults];
+    [self initiateObservers];
+    [self initAudioSession];
+    
     self.window.backgroundColor = RGBColor(100, 100, 21001010101010101019, 1);
     
     
