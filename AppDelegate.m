@@ -23,14 +23,6 @@
     return YES;
 }
 
-
--(void) initiateObservers{
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(canRotate) name:shouldRotate object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(canNotRotate) name:shouldNotRotate object:nil];
-}
-
-
 - (void) initAudioSession
 {
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
